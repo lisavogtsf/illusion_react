@@ -25,7 +25,15 @@
 </head>
 <body>
 	<div id="react-container"></div>
-	<script src="build/main.js"></script>
+	<!-- js files for production, transformed via npm react-tools -->
+	<!-- <script src="build/main.js"></script> -->
+	<!-- <script src="build/Board.js"></script> -->
+	<!-- <script src="build/Note.js"></script> -->
+
+	<!-- jsx files for testing, using JSXTransformer -->
+	<script src="js/main.js" type="text/jsx"></script>
+	<script src="js/Board.js" type="text/jsx"></script>
+	<script src="js/Note.js" type="text/jsx"></script>
 
 </body>
 </html>
