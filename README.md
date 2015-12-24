@@ -1,11 +1,15 @@
-# Rabitt-duck illusion as react bulletin board
+# Rabbit-duck illusion as react bulletin board
 A bulletin board in react, playing with the Rabitt-duck optical illusion and Thomas Kuhn's idea of scientific paradigm shift.
 
-This is a review of Lynda.com's Up and Running with React tutorial with my own adjustments, following the patterin in react-notes.
+![rabbit-duck optical illusion](assets/rabduck.gif)
+
+For me, this is a chance to review Lynda.com's Up and Running with React tutorial with my own adjustments, following the pattern in react-notes.
 
 Steps:
-* set up index and supporting files, file structure
-* generate empty background/bulletin board, board react component
+
+* ~~set up index and supporting files, file structure~~
+* ~~generate empty background/bulletin board with basic styling~~
+* board react component
 * check react is working as expected
 * make one note appear, note react component, the create function
 * add buttons to note (edit, save etc)
