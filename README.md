@@ -11,11 +11,13 @@ Steps:
 * ~~generate empty background/bulletin board with basic styling~~
 * ~~board react component~
 * ~~check react is working as expected~~
-* make one note appear, note react component, the create function
+* ~~make one note appear, note react component~~
 * add buttons to note (edit, save etc)
 * display hard-coded data, text & rabbit-duck image
 * make multiple notes appear from hard-coded data
+* enable note creation
 * enable editing and saving
+* enable note remove
 * add randomizer to shift rotation and location of notes
 * automatically populate many notes 
 * add interactive features, guessing if it's a rabbit or a duck etc

@@ -1,8 +1,9 @@
 // main.js
 var Note = React.createClass({
 	render: function () {
-		console.log("running Note component");
-		return <article className="note"></article>
+		return (<article className="note">
+			<textarea defaultValue="Rabbit or Duck?" className="form-control"></textarea>
+		</article>);
 	}
 });
 
@@ -10,7 +11,7 @@ var Board = React.createClass({
 
 	render: function () {
 		return (<section className="board">
-			<Note />
+			<Note/>
 		</section>);
 	}
 });
