@@ -5,10 +5,12 @@ div.board,
 div#react-container {
   height: 100%;
   overflow: hidden;
-  background-image: url(../assets/cork-board-watermarked.jpg);
 }
 body {
   margin: 0;
+}
+div.board {
+  background-image: url(../assets/cork-board-watermarked.jpg);
 }
 
 /*# sourceMappingURL=style.css.map */
