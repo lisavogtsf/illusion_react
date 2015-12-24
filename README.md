@@ -9,8 +9,8 @@ Steps:
 
 * ~~set up index and supporting files, file structure~~
 * ~~generate empty background/bulletin board with basic styling~~
-* board react component
-* check react is working as expected
+* ~~board react component~
+* ~~check react is working as expected~~
 * make one note appear, note react component, the create function
 * add buttons to note (edit, save etc)
 * display hard-coded data, text & rabbit-duck image
