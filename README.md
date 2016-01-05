@@ -12,8 +12,8 @@ Steps:
 * ~~board react component~
 * ~~check react is working as expected~~
 * ~~make one note appear, note react component~~
-* add buttons to note (edit, save etc)
-* display hard-coded data, text & rabbit-duck image
+* ~~add buttons to note (edit, save etc)~~
+* ~~display hard-coded data, text & rabbit-duck image~~
 * make multiple notes appear from hard-coded data
 * enable note creation
 * enable editing and saving
