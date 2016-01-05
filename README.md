@@ -5,7 +5,7 @@ A bulletin board in react, playing with the Rabitt-duck optical illusion and Tho
 
 For me, this is a chance to review Lynda.com's Up and Running with React tutorial with my own adjustments, following the pattern in react-notes.
 
-See the finished product here [http://lisavogtsf.github.io/illusion_react/](http://lisavogtsf.github.io/illusion_react/ "React Rabbit-Duck Illusion/Bulletin Board")
+See the in-progress [React Rabbit-Duck Illusion/Bulletin Board, http://lisavogtsf.github.io/illusion_react/](http://lisavogtsf.github.io/illusion_react/ "React Rabbit-Duck Illusion/Bulletin Board")
 
 Steps:
 
@@ -20,6 +20,6 @@ Steps:
 * ~~enable note creation~~
 * ~~enable editing and saving~~
 * ~~enable note remove~~
-* ~add randomizer to shift rotation and location of notes~~
+* ~~add randomizer to shift rotation and location of notes~~
 * automatically populate many notes 
 * add interactive features, guessing if it's a rabbit or a duck etc
