@@ -11,7 +11,7 @@ Steps:
 
 * ~~set up index and supporting files, file structure~~
 * ~~generate empty background/bulletin board with basic styling~~
-* ~~board react component~
+* ~~board react component~~
 * ~~check react is working as expected~~
 * ~~make one note appear, note react component~~
 * ~~add buttons to note (edit, save etc)~~
