@@ -66,6 +66,7 @@ var Note = React.createClass({
 var Board = React.createClass({
 
 	// propTypes comes from React, helps with validation
+	// used to define properties not a function
 	propTypes: {
 		count: function(props, propName) {
 			if (typeof props[propName] !== "number") {
@@ -77,10 +78,32 @@ var Board = React.createClass({
 		}
 	},
 
+	// return a list of notes, hard-coded
+	// getInitialState makes populates properties of this.state
+	getInitialState: function() {
+		return {
+			notes: [
+				"Rabbit or Duck?",
+				"Rabbit",
+				"Duck",
+				"Raduck"
+			]
+		};
+	},
+
 	render: function () {
+		// here map is the usual Javascript function
+		// used to run all elements of an array through given function
+
+		// access all notes in this.state.notes
+		// take each individually and use the value to go in the Note
+		// keep track of things with a key that comes from array indeces
 		return (<section className="board">
-			{this.props.count}
-			<Note/>
+			{this.state.notes.map(function (note, i){
+				return (
+					<Note key={i}>{note}</Note>
+					);
+			})}
 		</section>);
 	}
 });
