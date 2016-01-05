@@ -10,8 +10,18 @@ var Note = React.createClass({
 		return {editing: false};
 	},
 
-	create: function () {
-		console.log("creating new note");
+	// React function that runs before React components are rendered
+	// used here to randomize style
+	componentWillMount: function () {
+		this.style = {
+			right: this.randomBetween(0, window.innerWidth - 200) + 'px',
+			top: this.randomBetween(0, window.innerHeight - 200) + 'px',
+			transform: 'rotate(' + this.randomBetween(-35, 35) + 'deg)'
+		}
+	},
+
+	randomBetween: function (min, max) {
+		return (min + Math.ceil(Math.random() * max));
 	},
 
 	edit: function () {
@@ -20,40 +30,41 @@ var Note = React.createClass({
 
 	save: function () {
 		// React's getDOMNode has been deprecated, however it is the solution used in the tutorial
-		// onChange is an attribute of Note which calls this method
-		// when there is a change in the textarea tagged with newText ref, send that
-		// changed text and the index of the note somewhere
 		this.props.onChange(this.refs.newText.getDOMNode().value, this.props.index);
 		this.setState({editing: false});
 	},
 
 	remove: function () {
-		// onRemove attribute on each Note calls this function when removed
 		this.props.onRemove(this.props.index);
-		// this.setState({editing: false});
 	},
 
 	// shown when not in editing state
 	renderDisplay: function () {
-		return (<article className="note">
-			<p>{this.props.children}</p>
-			<img src="assets/rabduck.gif" alt="an optical illusion appearing to be either a rabbit or a duck" className="illusion"/>
-			<span>
-				<button onClick={this.edit} className="btn btn-primary glyphicon glyphicon-pencil" />
-				<button onClick={this.remove} className="btn btn-danger glyphicon glyphicon-trash" />
-			</span>
-		</article>);
+		return (
+			<article className="note"
+				style={this.style}>
+				<p>{this.props.children}</p>
+				<img src="assets/rabduck.gif" alt="an optical illusion appearing to be either a rabbit or a duck" className="illusion"/>
+				<span>
+					<button onClick={this.edit} className="btn btn-primary glyphicon glyphicon-pencil" />
+					<button onClick={this.remove} className="btn btn-danger glyphicon glyphicon-trash" />
+				</span>
+			</article>
+		);
 	},
 
 	// shown during editing state
 	renderForm: function () {
-		return (<article className="note">
-			<textarea ref="newText" defaultValue={this.props.children} className="form-control"></textarea>
-			<img src="assets/rabduck.gif" alt="an optical illusion appearing to be either a rabbit or a duck" className="illusion"/>
-			<span>
-				<button onClick={this.save} className="btn btn-primary glyphicon glyphicon-floppy-disk" />
-			</span>
-		</article>);		
+		return (
+			<article className="note"
+				style={this.style}>
+				<textarea ref="newText" defaultValue={this.props.children} className="form-control"></textarea>
+				<img src="assets/rabduck.gif" alt="an optical illusion appearing to be either a rabbit or a duck" className="illusion"/>
+				<span>
+					<button onClick={this.save} className="btn btn-primary glyphicon glyphicon-floppy-disk" />
+				</span>
+			</article>
+		);		
 	},
 
 	// render now decides between two sub-functions doing special rendering
@@ -86,13 +97,25 @@ var Board = React.createClass({
 	// getInitialState makes populates properties of this.state
 	getInitialState: function() {
 		return {
-			notes: [
-				"Rabbit or Duck?",
-				"Rabbit",
-				"Duck",
-				"Raduck"
-			]
+			notes: []
 		};
+	},
+
+	// provide proper next id as Board adds notes
+	nextId: function () {
+		this.uniqueId = this.uniqueId || 0;
+		return this.uniqueId++;
+	},
+
+	// the Board creates new Notes, adds their text to notes array
+	create: function (text) {
+		var arr = this.state.notes;
+		// notes are now objects not strings, with a note property
+		arr.push({
+			id: this.nextId(),
+			note: text
+		});
+		this.setState({notes: arr});
 	},
 
 	// update stores the state of notes
@@ -100,7 +123,7 @@ var Board = React.createClass({
 		// get a copy of the current notes from the state
 		var arr = this.state.notes;
 		// use index to update correct note with new text
-		arr[i] = newText;
+		arr[i].note = newText;
 		// sets this updated array back onto state 
 		this.setState({notes:arr});
 	},
@@ -118,28 +141,23 @@ var Board = React.createClass({
 	// move all that here, instead of keeping in render 
 	eachNote: function (note, i) {
 		return (
-			<Note key={i}
+			<Note key={note.id}
 				index={i}
 				onChange={this.update}
 				onRemove={this.remove}
-			>{note}</Note>
+			>{note.note}</Note>
 			);		
 	},
 
 	render: function () {
-		// here map is the usual Javascript function
-		// used to run all elements of an array through given function
-
-		// access all notes in this.state.notes
-		// take each individually and use the value to go in the Note
-		// keep track of things with a key that comes from array indexes
-		// heavy lifting has been moved to eachNote
+		// bind??
 		return (<section className="board">
 			{this.state.notes.map(this.eachNote)}
+			<button onClick={this.create.bind(null, "Rabbit or Duck?")}
+				className="btn btn-success glyphicon glyphicon-plus"></button>
 		</section>);
 	}
 });
-
 
 React.render(<Board count={10} />, 
 	document.getElementById('react-container'));
