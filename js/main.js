@@ -19,6 +19,9 @@ var Note = React.createClass({
 	},
 
 	save: function () {
+		// React's getDOMNode has been deprecated, however it is the solution used in the tutorial
+		var val = this.refs.newText.getDOMNode().value;
+		console.log("Next step will be to actually save this value: ", this.refs.newText.getDOMNode().value);
 		this.setState({editing: false});
 	},
 
@@ -26,6 +29,7 @@ var Note = React.createClass({
 		this.setState({editing: false});
 	},
 
+	// shown when not in editing state
 	renderDisplay: function () {
 		return (<article className="note">
 			<p>{this.props.children}</p>
@@ -37,9 +41,10 @@ var Note = React.createClass({
 		</article>);
 	},
 
+	// shown during editing state
 	renderForm: function () {
 		return (<article className="note">
-			<textarea defaultValue={this.props.children} className="form-control"></textarea>
+			<textarea ref="newText" defaultValue={this.props.children} className="form-control"></textarea>
 			<img src="assets/rabduck.gif" alt="an optical illusion appearing to be either a rabbit or a duck" className="illusion"/>
 			<span>
 				<button onClick={this.save} className="btn btn-primary glyphicon glyphicon-floppy-disk" />
