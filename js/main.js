@@ -20,13 +20,17 @@ var Note = React.createClass({
 
 	save: function () {
 		// React's getDOMNode has been deprecated, however it is the solution used in the tutorial
-		var val = this.refs.newText.getDOMNode().value;
-		console.log("Next step will be to actually save this value: ", this.refs.newText.getDOMNode().value);
+		// onChange is an attribute of Note which calls this method
+		// when there is a change in the textarea tagged with newText ref, send that
+		// changed text and the index of the note somewhere
+		this.props.onChange(this.refs.newText.getDOMNode().value, this.props.index);
 		this.setState({editing: false});
 	},
 
 	remove: function () {
-		this.setState({editing: false});
+		// onRemove attribute on each Note calls this function when removed
+		this.props.onRemove(this.props.index);
+		// this.setState({editing: false});
 	},
 
 	// shown when not in editing state
@@ -91,19 +95,47 @@ var Board = React.createClass({
 		};
 	},
 
+	// update stores the state of notes
+	update: function (newText, i) {
+		// get a copy of the current notes from the state
+		var arr = this.state.notes;
+		// use index to update correct note with new text
+		arr[i] = newText;
+		// sets this updated array back onto state 
+		this.setState({notes:arr});
+	},
+
+	remove: function (i) {
+		// get local copy of notes array from state
+		var arr = this.state.notes;
+		// use index to splice out that note
+		arr.splice(i, 1);
+		// set updated notes onto state
+		this.setState({notes:arr});
+	},
+
+	// as displaying notes on board gets more complex
+	// move all that here, instead of keeping in render 
+	eachNote: function (note, i) {
+		return (
+			<Note key={i}
+				index={i}
+				onChange={this.update}
+				onRemove={this.remove}
+			>{note}</Note>
+			);		
+	},
+
 	render: function () {
 		// here map is the usual Javascript function
 		// used to run all elements of an array through given function
 
 		// access all notes in this.state.notes
 		// take each individually and use the value to go in the Note
-		// keep track of things with a key that comes from array indeces
+		// keep track of things with a key that comes from array indexes
+		// heavy lifting has been moved to eachNote
 		return (<section className="board">
-			{this.state.notes.map(function (note, i){
-				return (
-					<Note key={i}>{note}</Note>
-					);
-			})}
+			{this.state.notes.map(this.eachNote)}
 		</section>);
 	}
 });
