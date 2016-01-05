@@ -6,8 +6,21 @@
  */
 var Note = React.createClass({
 
+	// getInitialState: function () {
+	// 	return {editing: false};
+	// },
+
+	create: function () {
+		console.log("creating new note");
+	},
+
 	edit: function () {
-		this.setState({editing: true});
+		// this.setState({editing: true});
+		console.log("editing note");
+	},
+
+	remove: function () {
+		console.log("remove note");
 	},
 
 	render: function () {
@@ -16,6 +29,7 @@ var Note = React.createClass({
 			<img src="assets/rabduck.gif" alt="an optical illusion appearing to be either a rabbit or a duck" className="illusion"/>
 			<span>
 				<button onClick={this.edit} className="btn btn-primary glyphicon glyphicon-pencil" />
+				<button onClick={this.remove} className="btn btn-danger glyphicon glyphicon-trash" />
 			</span>
 		</article>);
 	}
