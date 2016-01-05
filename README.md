@@ -5,6 +5,8 @@ A bulletin board in react, playing with the Rabitt-duck optical illusion and Tho
 
 For me, this is a chance to review Lynda.com's Up and Running with React tutorial with my own adjustments, following the pattern in react-notes.
 
+See the finished product here [http://lisavogtsf.github.io/illusion_react/](http://lisavogtsf.github.io/illusion_react/ "React Rabbit-Duck Illusion/Bulletin Board")
+
 Steps:
 
 * ~~set up index and supporting files, file structure~~
