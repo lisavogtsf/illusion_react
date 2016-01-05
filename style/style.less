@@ -11,16 +11,26 @@ body {
 	margin: 0;
 }
 
+button.btn {
+    opacity: .3;
+    &:hover {
+        opacity: 1;
+    }
+}
+
 .board {
 	background-image: url(../assets/cork-board-watermarked.jpg);
 }
 
 .note {
-	height: 150px;
-	width: 150px;
+	height: 200px;
+	width: 200px;
 	margin: 10px;
 	/*position: absolute;*/
 	background-color: yellow;
 	float: left;
-	box-shadow: 3px 3px 5px 0 black;	
+	box-shadow: 3px 3px 5px 0 black;
+	.illusion {
+	    width: 100%;
+	}
 }
