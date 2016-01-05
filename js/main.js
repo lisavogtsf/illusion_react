@@ -65,13 +65,26 @@ var Note = React.createClass({
 
 var Board = React.createClass({
 
+	// propTypes comes from React, helps with validation
+	propTypes: {
+		count: function(props, propName) {
+			if (typeof props[propName] !== "number") {
+				console.log("count property  must be a number!")
+			}
+			if (props[propName] > 100) {
+				console.log("Creating " + props[propName] + " notes is ridiculous!");
+			}
+		}
+	},
+
 	render: function () {
 		return (<section className="board">
+			{this.props.count}
 			<Note/>
 		</section>);
 	}
 });
 
 
-React.render(<Board />, 
+React.render(<Board count={10} />, 
 	document.getElementById('react-container'));
