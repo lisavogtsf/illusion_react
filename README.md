@@ -22,4 +22,4 @@ Steps:
 * ~~enable note remove~~
 * ~~add randomizer to shift rotation and location of notes~~
 * automatically populate many notes 
-* add interactive features, guessing if it's a rabbit or a duck etc
+* add interactive features, guessing if it's a rabbit or a duck etc.
