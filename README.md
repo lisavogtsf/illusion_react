@@ -1,11 +1,11 @@
-# Rabbit-duck illusion as react bulletin board
-A bulletin board in react, playing with the Rabit-duck optical illusion which serves as a simplistic explanation of paradigm shifts in science. "Kuhn used the duck-rabbit optical illusion to demonstrate the way in which a paradigm shift could cause one to see the same information in an entirely different way." [Wikipedia, paradigm shift](https://en.wikipedia.org/wiki/Paradigm_shift)
+# React bulletin board displaying duck-rabbit illusion
+A bulletin board in [React](https://facebook.github.io/react/), playing with the classic duck-rabbit optical illusion. This illusion is particularly interesting to me because historian of science Thomas Kuhn "used the duck-rabbit optical illusion to demonstrate the way in which a paradigm shift could cause one to see the same information in an entirely different way." [Wikipedia, paradigm shift](https://en.wikipedia.org/wiki/Paradigm_shift)
 
 ![rabbit-duck optical illusion](assets/rabduck.gif)
 
 For me, this is a chance to review Lynda.com's Up and Running with React tutorial with my own adjustments, following the pattern in react-notes.
 
-See the in-progress [React Rabbit-Duck Illusion/Bulletin Board, http://lisavogtsf.github.io/illusion_react/](http://lisavogtsf.github.io/illusion_react/ "React Rabbit-Duck Illusion/Bulletin Board")
+See the in-progress [React Duck-Rabbit Illusion/Bulletin Board, http://lisavogtsf.github.io/illusion_react/](http://lisavogtsf.github.io/illusion_react/ "React Rabbit-Duck Illusion/Bulletin Board")
 
 Steps:
 
