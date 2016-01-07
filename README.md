@@ -1,5 +1,5 @@
 # Rabbit-duck illusion as react bulletin board
-A bulletin board in react, playing with the Rabitt-duck optical illusion and Thomas Kuhn's idea of scientific paradigm shift.
+A bulletin board in react, playing with the Rabit-duck optical illusion which serves as a simplistic explanation of paradigm shifts in science. "Kuhn used the duck-rabbit optical illusion to demonstrate the way in which a paradigm shift could cause one to see the same information in an entirely different way." [Wikipedia, paradigm shift](https://en.wikipedia.org/wiki/Paradigm_shift)
 
 ![rabbit-duck optical illusion](assets/rabduck.gif)
 
