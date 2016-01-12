@@ -10,15 +10,30 @@ var Note = React.createClass({
 		return {editing: false};
 	},
 
-	// React function that runs before React components are rendered
-	// used here to randomize style
+	// used to set the default style of each Note
+	// this can then be used with style = this.props
+	getDefaultProps: function () {
+		return {
+			height: "200px",
+			width: "200px",
+			margin: "10px",
+			padding: "10px",
+			position: "absolute",
+			backgroundColor: "yellow",
+			float: "left",
+			boxShadow: "3px 3px 5px 0 black"
+		};
+	},
+
+	// React function that runs just before React components are rendered
+	// it picks up the default props and then adds the randomized styles
+	// separates more basic style from more complicated
 	componentWillMount: function () {
 		console.log("Note componentWillMount, location and rotation randomized");
-		this.style = {
-			right: this.randomBetween(0, window.innerWidth - 200) + 'px',
-			top: this.randomBetween(0, window.innerHeight - 200) + 'px',
-			transform: 'rotate(' + this.randomBetween(-35, 35) + 'deg)'
-		}
+		this.style = this.props;
+		this.style.right = this.randomBetween(0, window.innerWidth - 200) + 'px';
+		this.style.top = this.randomBetween(0, window.innerHeight - 200) + 'px';
+		this.style.transform = 'rotate(' + this.randomBetween(-35, 35) + 'deg)';
 	},
 
 	// generate a random number betwen min and max
@@ -47,7 +62,7 @@ var Note = React.createClass({
 				style={this.style}>
 				<p>{this.props.children}</p>
 				<img src="assets/rabduck.gif" alt="an optical illusion appearing to be either a rabbit or a duck" className="illusion"/>
-				<span>
+				<span className="button-bar">
 					<button onClick={this.edit} className="btn btn-primary glyphicon glyphicon-pencil" />
 					<button onClick={this.remove} className="btn btn-danger glyphicon glyphicon-trash" />
 				</span>
@@ -70,7 +85,7 @@ var Note = React.createClass({
 	},
 
 	componentDidMount: function () {
-		console.log("one (of many?) React Note components was mounted");
+		console.log("a React Note components was mounted");
 	},
 
 	// render now decides between two sub-functions doing special rendering

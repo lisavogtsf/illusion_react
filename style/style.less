@@ -20,20 +20,20 @@ button.btn {
         opacity: 1;   
     }
 }
+span.button-bar {
+    position: relative;
+    bottom: 0;
+    button {
+        margin: 8px 5px;
+    }
+}
 
 .board {
 	background-image: url(../assets/cork-board.jpg);
+    padding: 10px;
 }
 
-.note {
-	height: 200px;
-	width: 200px;
-	margin: 10px;
-	position: absolute;
-	background-color: yellow;
-	float: left;
-	box-shadow: 3px 3px 5px 0 black;
-	.illusion {
-	    width: 100%;
-	}
+// moved out of note for change in default props
+.illusion {
+    width: 100%;
 }
