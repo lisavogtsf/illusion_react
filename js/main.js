@@ -13,6 +13,7 @@ var Note = React.createClass({
 	// React function that runs before React components are rendered
 	// used here to randomize style
 	componentWillMount: function () {
+		console.log("Note componentWillMount, location and rotation randomized");
 		this.style = {
 			right: this.randomBetween(0, window.innerWidth - 200) + 'px',
 			top: this.randomBetween(0, window.innerHeight - 200) + 'px',
@@ -20,6 +21,7 @@ var Note = React.createClass({
 		}
 	},
 
+	// generate a random number betwen min and max
 	randomBetween: function (min, max) {
 		return (min + Math.ceil(Math.random() * max));
 	},
@@ -38,7 +40,7 @@ var Note = React.createClass({
 		this.props.onRemove(this.props.index);
 	},
 
-	// shown when not in editing state
+	// render a static note, this is shown when not in editing state
 	renderDisplay: function () {
 		return (
 			<article className="note"
@@ -53,7 +55,7 @@ var Note = React.createClass({
 		);
 	},
 
-	// shown during editing state
+	// render the form for changing a note, shown during editing state
 	renderForm: function () {
 		return (
 			<article className="note"
@@ -65,6 +67,10 @@ var Note = React.createClass({
 				</span>
 			</article>
 		);		
+	},
+
+	componentDidMount: function () {
+		console.log("one (of many?) React Note components was mounted");
 	},
 
 	// render now decides between two sub-functions doing special rendering
@@ -90,6 +96,8 @@ var Board = React.createClass({
 			if (props[propName] > 100) {
 				console.log("Creating " + props[propName] + " notes is ridiculous!");
 			}
+			// track count, properties etc
+			console.log("Board propTypes count, props, propName", props, propName);
 		}
 	},
 
@@ -101,13 +109,14 @@ var Board = React.createClass({
 		};
 	},
 
-	// provide proper next id as Board adds notes
+	// provide proper, unique next id as Board adds notes
 	nextId: function () {
 		this.uniqueId = this.uniqueId || 0;
 		return this.uniqueId++;
 	},
 
 	// the Board creates new Notes, adds their text to notes array
+	// passes in unique id when creating Note
 	create: function (text) {
 		var arr = this.state.notes;
 		// notes are now objects not strings, with a note property
@@ -138,7 +147,7 @@ var Board = React.createClass({
 	},
 
 	// as displaying notes on board gets more complex
-	// move all that here, instead of keeping in render 
+	// move all that here, instead of keeping in render
 	eachNote: function (note, i) {
 		return (
 			<Note key={note.id}
@@ -149,8 +158,14 @@ var Board = React.createClass({
 			);		
 	},
 
+	componentDidMount: function() {
+		console.log("React component 'Board' has been mounted");
+	},
+
+	// render the entire board
+	// simplified with helper function eachNote
 	render: function () {
-		// bind??
+		// bind adds placeholder text
 		return (<section className="board">
 			{this.state.notes.map(this.eachNote)}
 			<button onClick={this.create.bind(null, "Rabbit or Duck?")}
