@@ -19,7 +19,7 @@ var Note = React.createClass({
 			margin: "10px",
 			padding: "10px",
 			position: "absolute",
-			backgroundColor: "yellow",
+			backgroundColor: "#ffff99",
 			float: "left",
 			boxShadow: "3px 3px 5px 0 black"
 		};
