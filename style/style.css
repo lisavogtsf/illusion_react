@@ -32,5 +32,8 @@ span.button-bar button {
 .illusion {
   width: 100%;
 }
+.draggable.ui-draggable-dragging {
+  z-index: 2;
+}
 
 /*# sourceMappingURL=style.css.map */

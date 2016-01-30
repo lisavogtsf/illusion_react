@@ -32,12 +32,12 @@ var Board = React.createClass({
 
 	// the Board creates new Notes, adds their text to notes array
 	// passes in unique id when creating Note
-	create: function (text) {
+	createNote: function (text) {
 		var arr = this.state.notes;
 		// notes are now objects not strings, with a note property
 		arr.push({
 			id: this.nextId(),
-			note: text
+			noteText: text
 		});
 		this.setState({notes: arr});
 	},
@@ -47,7 +47,7 @@ var Board = React.createClass({
 		// get a copy of the current notes from the state
 		var arr = this.state.notes;
 		// use index to update correct note with new text
-		arr[i].note = newText;
+		arr[i].noteText = newText;
 		// sets this updated array back onto state 
 		this.setState({notes:arr});
 	},
@@ -69,7 +69,7 @@ var Board = React.createClass({
 				index={i}
 				onChange={this.update}
 				onRemove={this.remove}
-			>{note.note}</Note>
+			>{note.noteText}</Note>
 			);		
 	},
 
@@ -83,7 +83,7 @@ var Board = React.createClass({
 		// bind adds placeholder text
 		return (<section className="board">
 			{this.state.notes.map(this.eachNote)}
-			<button onClick={this.create.bind(null, "Rabbit or Duck?")}
+			<button onClick={this.createNote.bind(null, "Rabbit or Duck?")}
 				className="btn btn-success glyphicon glyphicon-plus"></button>
 		</section>);
 	}
