@@ -58,7 +58,7 @@ var Note = React.createClass({
 	// render a static note, this is shown when not in editing state
 	renderDisplay: function () {
 		return (
-			<article className="note"
+			<article className="note draggable"
 				style={this.style}>
 				<p>{this.props.children}</p>
 				<img src="assets/rabduck.gif" alt="an optical illusion appearing to be either a rabbit or a duck" className="illusion"/>
@@ -84,8 +84,11 @@ var Note = React.createClass({
 		);		
 	},
 
+	// runs immediately after component is mounted
 	componentDidMount: function () {
-		console.log("a React Note components was mounted");
+		$(function (){
+			$(".draggable").draggable();
+		});
 	},
 
 	// render now decides between two sub-functions doing special rendering
