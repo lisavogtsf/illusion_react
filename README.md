@@ -1,5 +1,5 @@
 # React bulletin board displaying duck-rabbit illusion
-A bulletin board in [React](https://facebook.github.io/react/), playing with the classic duck-rabbit optical illusion. This illusion is particularly interesting to me because historian of science Thomas Kuhn "used the duck-rabbit optical illusion to demonstrate the way in which a paradigm shift could cause one to see the same information in an entirely different way." [Wikipedia, paradigm shift](https://en.wikipedia.org/wiki/Paradigm_shift)
+A bulletin board in [React](https://facebook.github.io/react/), playing with the classic duck-rabbit optical illusion. This illusion is particularly interesting to me because historian of science Thomas Kuhn "used the duck-rabbit optical illusion to demonstrate the way in which a paradigm shift could cause one to see the same information in an entirely different way." [Wikipedia, "paradigm shift"](https://en.wikipedia.org/wiki/Paradigm_shift)
 
 ![rabbit-duck optical illusion](assets/rabduck.gif)
 
